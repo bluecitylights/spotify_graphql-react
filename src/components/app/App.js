@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from 'react-apollo';
-import Artists from './Artists';
+import Artists from '../artist/Artists';
 
 
 const client = new ApolloClient({

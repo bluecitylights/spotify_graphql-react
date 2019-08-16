@@ -7,7 +7,7 @@ const Artists = () => (
   <Query
     query={gql`
       {
-        artists(byName: "bon jovi")
+        artists(byName: "richard")
         {
           id
           name
