@@ -5,9 +5,8 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from 'react-apollo';
 import Artists from '../artist/Artists';
 
-
 const client = new ApolloClient({
-  uri: "https://spotify-analyzer-qenojzqfxa-ew.a.run.app/graphql"
+  uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API
 });
 
 const App = () => (
