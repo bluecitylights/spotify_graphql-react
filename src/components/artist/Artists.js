@@ -20,11 +20,15 @@ const Artists = (props) => {
   const { data, error, loading } = useQuery(QUERY, {
     variables: {artistFilter}
   });
+  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  return data.artists.map((currentArtist) => (
+  const artists = data.artists.map((currentArtist) => (
     <Artist artist={currentArtist} />
   ));
+  return (
+    <div>{artists}</div>
+  )
 };
 
 export default Artists;
