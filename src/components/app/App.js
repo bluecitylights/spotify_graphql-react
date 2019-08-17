@@ -13,7 +13,7 @@ const App = () => (
   <ApolloProvider client={client}>
     <div className="container">
       <nav className="navbar navbar-dark bg-primary">
-        <a className="navbar-brand" href="#">React and GraphQL - Sample Application</a>
+        <a className="navbar-brand" href="#">Spotify Analyzer</a>
       </nav>
       <div>
         <ArtistSearch/>
