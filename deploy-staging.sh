@@ -45,8 +45,8 @@ aXMlNDBzcG90aWZ5LWFuYWx5emVyLTI1MDEyMi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIKfQo=
 "
 docker build -t $GCLOUD_HOSTNAME/$GCLOUD_PROJECT_ID/$DOCKER_IMAGE_NAME:$TRAVIS_COMMIT .
 echo "after docker"
-echo -e $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > gcloud-service-key.json
-gcloud auth activate-service-account --key-file gcloud-service-key.json
+echo -e $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > $HOME/gcloud-service-key.json
+gcloud auth activate-service-account --key-file $HOME/gcloud-service-key.json
 echo "after auth"
 gcloud --quiet config set project ${GCLOUD_PROJECT_ID}
 # gcloud --quiet config set container/cluster $CLUSTER_NAME_STG
