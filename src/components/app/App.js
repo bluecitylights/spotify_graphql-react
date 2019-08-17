@@ -16,7 +16,7 @@ const App = () => (
         <a className="navbar-brand" href="#">React and GraphQL - Sample Application</a>
       </nav>
       <div>
-        <Artists />
+        <Artists artistFilter = "aqua"/>
       </div>
     </div>
   </ApolloProvider>
