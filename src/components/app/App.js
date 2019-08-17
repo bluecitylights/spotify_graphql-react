@@ -3,7 +3,7 @@ import logo from '../../logo.svg';
 import './App.css';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from 'react-apollo';
-import Artists from '../artist/Artists';
+import ArtistSearch from '../artist/ArtistSearch';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API
@@ -16,7 +16,7 @@ const App = () => (
         <a className="navbar-brand" href="#">React and GraphQL - Sample Application</a>
       </nav>
       <div>
-        <Artists artistFilter = "aqua"/>
+        <ArtistSearch/>
       </div>
     </div>
   </ApolloProvider>
