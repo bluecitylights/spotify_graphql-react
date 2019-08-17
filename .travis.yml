@@ -18,7 +18,7 @@ services:
 # Set env vars
 env:
   global:
-    - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
+    - GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcloud-service-key.json
     - NODE_ENV=CI
 
 install:
