@@ -33,14 +33,13 @@ before_deploy:
   - gcloud --quiet version
   - gcloud --quiet components update
   - gcloud --quiet components beta update
-  - gcloud --quiet components update kubectl
 
 deploy:
   - provider: script
     script: ./deploy-staging.sh
     skip_cleanup: true
     on:
-      branch: development
+      branch: deploy-to-gcloud
   - provider: script
     script: ./deploy-production.sh
     skip_cleanup: true
