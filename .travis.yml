@@ -39,12 +39,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: bash ./deploy-staging.sh
-    skip_cleanup: true
-    on:
-      branch: deploy-to-gcloud
-  - provider: script
-    script: bash ./deploy-production.sh
+    script: bash ./deploy.sh
     skip_cleanup: true
     on:
       branch: master
