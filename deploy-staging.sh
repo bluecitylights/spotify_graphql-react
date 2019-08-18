@@ -5,7 +5,7 @@ set -e
 docker build -t $GCLOUD_HOSTNAME/$GCLOUD_PROJECT_ID/$DOCKER_IMAGE_NAME:$TRAVIS_COMMIT .
 
 echo "after docker"
-echo GCLOUD_SERVICE_KEY_STG
+echo $GCLOUD_SERVICE_KEY_STG
 echo -e $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > $HOME/gcloud-service-key.json
 cat $HOME/gcloud-service-key.json
 cloud auth activate-service-account --key-file $HOME/gcloud-service-key.json
