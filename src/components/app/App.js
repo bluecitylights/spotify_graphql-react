@@ -3,6 +3,7 @@ import logo from '../../logo.svg';
 import './App.css';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from 'react-apollo';
+import PlaylistSearch from '../playlist/PlaylistSearch';
 import ArtistSearch from '../artist/ArtistSearch';
 
 const client = new ApolloClient({
@@ -17,6 +18,7 @@ const App = () => (
       </nav>
       <div>
         <ArtistSearch/>
+        <PlaylistSearch/>
       </div>
     </div>
   </ApolloProvider>
