@@ -58,4 +58,6 @@ const ArtistSearch = () => {
   )
 }
 
+export {Artist, Artists, ArtistSearch}
+
 export default ArtistSearch;
