@@ -37,10 +37,24 @@ const Card = ({id, name, image, __typename}) => (
     </div>
   )
 
+  const Album = ({id, name, image, __typename, artists}) => (
+    <div key={id} className="card" style={{'width': '100%', 'marginTop': '10px'}}>
+        <div className="card-body">
+            <h5 className="card-title">{name}</h5>
+            <h6 className="card-subtitle mb-2 text-muted">{__typename}</h6>
+            <img src={image} alt="new" />
+        </div>
+    </div>
+  )
 
-const searchItemToCard = item => item.__typename == 'Artist' ? Artist : Card
 
-const SearchResults = R.map(Card)
+const searchItemToCard = R.cond([
+  [R.propEq('__typename', 'Artist'), Artist],
+  [R.propEq('__typename', 'Album'), Album],
+  [R.T, Card],
+]);
+
+const SearchResults = R.map(searchItemToCard)
 
 const QueryResponse = R.cond([
   [R.prop('loading'), Loading],
