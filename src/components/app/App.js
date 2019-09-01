@@ -7,7 +7,14 @@ import {OmniSearch} from '../OmniSearch'
 import {MyLayout} from '../Layout/Layout'
 
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API
+  uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API,
+  request: operation => {
+    operation.setContext({
+        headers: {
+          Authorization: `Bearer ` + process.env.REACT_APP_SPOTIFY_USER_TOKEN
+        },
+    });
+}
 });
 
 const App = () => (

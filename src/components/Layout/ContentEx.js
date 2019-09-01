@@ -6,6 +6,7 @@ import Link from "@material-ui/core/Link";
 import {useRoutes} from 'hookrouter';
 import {OmniSearch} from '../OmniSearch'
 import {Recent} from '../Recent'
+import {MyPlaylists} from '../MyPlaylists'
 
 const styles = ({ breakpoints }) => ({
   root: {
@@ -23,7 +24,7 @@ const styles = ({ breakpoints }) => ({
 
 const routes = {
   "/": () => <OmniSearch />,
-  //"/playlists": () => <Playlists />,
+  "/playlists": () => <MyPlaylists />,
   "/recent": () => <Recent />,
   "/search": () => <OmniSearch />
 };
