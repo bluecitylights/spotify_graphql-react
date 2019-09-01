@@ -16,7 +16,8 @@ import HeaderEx from "./HeaderEx";
 import ContentForm from "./ContentForm";
 import ContentEx from "./ContentEx";
 import FooterEx from "./FooterEx";
-
+import {OmniSearch} from '../OmniSearch'
+import {Recent} from '../Recent'
 
 const {
     createStandardLayout,
@@ -31,8 +32,23 @@ const theme = createMuiTheme();
 
 // See https://codesandbox.io/s/material-ui-layout-v129-7mn9xq3nnj?from-embed
 
+const MyLoading = () => {
+  return (
+    <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Typography variant={"h2"}>Changing preset...</Typography>
+      </div>
+  )
+}
+
 const MyLayout = () => {
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [preset, setPreset] = useState("createStandardLayout");
   const [data, setData] = useState({
     header: true,
@@ -40,63 +56,51 @@ const MyLayout = () => {
     content: true,
     footer: true
   });
-
-    return (
-        <ThemeProvider theme={theme}>
-        {loading ? (
-        <div
-          style={{
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}
+  return (
+      <ThemeProvider theme={theme}>
+      {loading ? <MyLoading/> : (
+      <Root
+        config={presets[preset]({ headerPosition: "relative" })}
+        style={{ minHeight: "100vh" }}
+      >
+        <CssBaseline />
+        <Header
+          renderMenuIcon={opened =>
+            opened ? <Icon>chevron_left</Icon> : <Icon>menu_rounded</Icon>
+          }
         >
-          <Typography variant={"h2"}>Changing Preset...</Typography>
-        </div>
-      ) : (
-        <Root
-          config={presets[preset]({ headerPosition: "relative" })}
-          style={{ minHeight: "100vh" }}
+          {({ screen, collapsed }) =>
+            data.header && <HeaderEx screen={screen} collapsed={collapsed} />
+          }
+        </Header>
+        <Nav
+          renderIcon={collapsed =>
+            collapsed ? <Icon>chevron_right</Icon> : <Icon>chevron_left</Icon>
+          }
+          header={({ collapsed }) =>
+            data.nav && <NavHeaderEx collapsed={collapsed} />
+          }
         >
-          <CssBaseline />
-          <Header
-            renderMenuIcon={opened =>
-              opened ? <Icon>chevron_left</Icon> : <Icon>menu_rounded</Icon>
-            }
-          >
-            {({ screen, collapsed }) =>
-              data.header && <HeaderEx screen={screen} collapsed={collapsed} />
-            }
-          </Header>
-          <Nav
-            renderIcon={collapsed =>
-              collapsed ? <Icon>chevron_right</Icon> : <Icon>chevron_left</Icon>
-            }
-            header={({ collapsed }) =>
-              data.nav && <NavHeaderEx collapsed={collapsed} />
-            }
-          >
-            {data.nav && <NavContentEx />}
-          </Nav>
-          <Content>
-            <ContentForm
-              preset={preset}
-              onChangePreset={val => {
-                setLoading(true);
-                setPreset(val);
-                setTimeout(() => setLoading(false), 500);
-              }}
-              data={data}
-              onChangeData={setData}
-            />
-            {data.content && <ContentEx />}
-          </Content>
-          <Footer>{data.footer && <FooterEx />}</Footer>
-        </Root>
-      )}
-        </ThemeProvider>
-    )
+          {data.nav && <NavContentEx />}
+        </Nav>
+        <Content>
+          {/* <ContentForm
+            preset={preset}
+            onChangePreset={val => {
+              setLoading(true);
+              setPreset(val);
+              setTimeout(() => setLoading(false), 500);
+            }}
+            data={data}
+            onChangeData={setData}
+          /> */}
+         {data.content && <ContentEx/>}
+        </Content>
+        <Footer>{data.footer && <FooterEx />}</Footer>
+      </Root>
+    )}
+    </ThemeProvider>
+  )
 }
 
 export {MyLayout}

@@ -5,6 +5,7 @@ import {useQuery} from '@apollo/react-hooks';
 import * as R from 'ramda'
 import {Loading, Error} from './utils'
 import {Artist, Artists} from './Artists'
+import {MediaCard} from './MediaCard'
 
 const QUERY = gql`
   query search($filterText: String!) {
@@ -28,23 +29,25 @@ const QUERY = gql`
 `;
 
 const Card = ({id, name, image, __typename}) => (
-    <div key={id} className="card" style={{'width': '100%', 'marginTop': '10px'}}>
-        <div className="card-body">
-            <h5 className="card-title">{name}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{__typename}</h6>
-            <img src={image} alt="new" />
-        </div>
-    </div>
+  <MediaCard image = {image} title = {name} content = "dit is een {__typename}" /> 
+   // <div key={id} className="card" style={{'width': '100%', 'marginTop': '10px'}}>
+    //     <div className="card-body">
+    //         <h5 className="card-title">{name}</h5>
+    //         <h6 className="card-subtitle mb-2 text-muted">{__typename}</h6>
+    //         <img src={image} alt="new" />
+    //     </div>
+    // </div>
   )
 
   const Album = ({id, name, image, __typename, artists}) => (
-    <div key={id} className="card" style={{'width': '100%', 'marginTop': '10px'}}>
-        <div className="card-body">
-            <h5 className="card-title">{name}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{__typename}</h6>
-            <img src={image} alt="new" />
-        </div>
-    </div>
+    <MediaCard image = {image} title = {name} content = "dit is een album" />
+    // <div key={id} className="card" style={{'width': '100%', 'marginTop': '10px'}}>
+    //     <div className="card-body">
+    //         <h5 className="card-title">{name}</h5>
+    //         <h6 className="card-subtitle mb-2 text-muted">{__typename}</h6>
+    //         <img src={image} alt="new" />
+    //     </div>
+    // </div>
   )
 
 

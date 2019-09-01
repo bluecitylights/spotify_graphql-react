@@ -12,4 +12,7 @@ const QueryResponseInternal = (component, prop, queryResult) => R.cond([
 
 const QueryResponse = R.curry(QueryResponseInternal)
 
+
+
+
 export {Loading, Error}

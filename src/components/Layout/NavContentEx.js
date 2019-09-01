@@ -8,42 +8,26 @@ import Divider from "@material-ui/core/Divider";
 
 const list = [
   {
-    primaryText: "My Files",
-    icon: "folder"
-  },
-  {
-    primaryText: "Shared with me",
-    icon: "people"
-  },
-  {
-    primaryText: "Starred",
-    icon: "star"
+    primaryText: "My Playlists",
+    icon: "folder",
+    route: "/playlists"
   },
   {
     primaryText: "Recent",
-    icon: "schedule"
+    icon: "schedule",
+    route: "/recent"
   },
   {
-    primaryText: "Offline",
-    icon: "offline_pin"
+    primaryText: "Search",
+    icon: "search",
+    route: "/search"
   },
-  {
-    primaryText: "Uploads",
-    icon: "publish"
-  },
-  {
-    primaryText: "Backups",
-    icon: "backup"
-  },
-  {
-    primaryText: "Trash",
-    icon: "delete"
-  }
 ];
-const NavContentEx = () => (
-  <List>
-    {list.map(({ primaryText, icon }, i) => (
-      <ListItem key={primaryText} selected={i === 0} button>
+const NavContentEx = () => {
+  return (
+    <List>
+    {list.map(({ primaryText, icon, route }, i) => (
+      <ListItem key={primaryText} selected={i === 0} button component="a" href={route}>
         <ListItemIcon>
           <Icon>{icon}</Icon>
         </ListItemIcon>
@@ -63,8 +47,8 @@ const NavContentEx = () => (
         primaryTypographyProps={{ noWrap: true }}
       />
     </ListItem>
-  </List>
-);
+  </List>)
+};
 
 NavContentEx.propTypes = {};
 NavContentEx.defaultProps = {};
