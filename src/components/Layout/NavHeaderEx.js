@@ -16,7 +16,7 @@ const NavHeaderEx = ({ collapsed }) => (
       />
       <div style={{ paddingBottom: 16 }} />
       <Typography variant={"h6"} noWrap>
-        Richard Veldman
+        The User
       </Typography>
       <Typography color={"textSecondary"} noWrap gutterBottom>
         myname@outlook.com
