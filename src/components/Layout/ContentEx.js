@@ -7,6 +7,7 @@ import {useRoutes} from 'hookrouter';
 import {OmniSearch} from '../OmniSearch'
 import {Recent} from '../Recent'
 import {MyPlaylists} from '../MyPlaylists'
+import {Pointlogic} from '../Pointlogic'
 
 const styles = ({ breakpoints }) => ({
   root: {
@@ -26,7 +27,8 @@ const routes = {
   "/": () => <OmniSearch />,
   "/playlists": () => <MyPlaylists />,
   "/recent": () => <Recent />,
-  "/search": () => <OmniSearch />
+  "/search": () => <OmniSearch />,
+  "/pointlogic": () => <Pointlogic />
 };
 
 const ContentEx = ({ classes }) => {

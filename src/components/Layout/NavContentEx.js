@@ -22,6 +22,11 @@ const list = [
     icon: "search",
     route: "/search"
   },
+  {
+    primaryText: "Pointlogic",
+    icon: "trip_origin",
+    route: "/pointlogic"
+  }
 ];
 const NavContentEx = () => {
   return (
