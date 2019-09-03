@@ -5,6 +5,7 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from 'react-apollo';
 import {OmniSearch} from '../OmniSearch'
 import {MyLayout} from '../Layout/Layout'
+import { ProvideAuth } from "../use-auth.js";
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API,
@@ -18,9 +19,11 @@ const client = new ApolloClient({
 });
 
 const App = () => (
-  <ApolloProvider client={client}>
-    <MyLayout/>
-  </ApolloProvider>
+  <ProvideAuth>
+    <ApolloProvider client={client}>
+      <MyLayout/>
+    </ApolloProvider>
+  </ProvideAuth>
 );
 
 export default App;

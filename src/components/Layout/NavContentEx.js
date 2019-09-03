@@ -5,6 +5,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Icon from "@material-ui/core/Icon";
 import Divider from "@material-ui/core/Divider";
+import { useAuth } from "../use-auth";
 
 const list = [
   {
@@ -29,6 +30,7 @@ const list = [
   }
 ];
 const NavContentEx = () => {
+  const auth = useAuth();
   return (
     <List>
     {list.map(({ primaryText, icon, route }, i) => (
