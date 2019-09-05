@@ -54,9 +54,9 @@ const NavHeaderEx = ({ collapsed }) => {
   useEffect(() => {
     const parsed = queryString.parse(window.location.search);
     if (parsed["?access_token"]) {
-      auth.signin(parsed.access_token);
+      auth.signin(parsed["?access_token"]);
     }
-  },[auth.token]);
+  });
   return (<>
     <div style={{ padding: collapsed ? 8 : 16, transition: "0.3s" }}>
     {auth.user ? 

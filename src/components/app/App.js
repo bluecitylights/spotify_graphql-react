@@ -32,9 +32,10 @@ import { setContext } from 'apollo-link-context';
 const client = new ApolloClient({
   uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API,
   request: operation => {
+    const user = JSON.parse(window.localStorage.getItem('sp_user'))
     operation.setContext({
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_SPOTIFY_USER_TOKEN}`
+        Authorization: `Bearer ${user.token}`
       }
     })
   }
