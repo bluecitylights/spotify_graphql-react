@@ -12,7 +12,7 @@ const Login = () => {
   return (
   <div className='App'>
       {/* <Button onClick={() => auth.signin()}>Signin</Button> */}
-      <a href="http://localhost:4000/login?client_redirect_uri=http://localhost:3000/callback">Login</a>
+      <a href={`${process.env.REACT_APP_SPOTIFY_ANALYZER_LOGIN}?client_redirect_uri=${process.env.REACT_APP_SPOTIFY_AUTH_CALLBACK}`}>Login</a>
       {/* <a href="/login" dangerouslySetInnerHTML={{__html: loginSVG}}></a> */}
   </div>
 )}
