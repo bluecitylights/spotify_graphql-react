@@ -8,24 +8,40 @@ import { ProvideAuth } from "../use-auth.js";
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 
-const httpLink = createHttpLink({
-  uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API
-})
+// this doesnt work, it connectes to localhost:3000/graphql
+// const httpLink = createHttpLink({
+//   uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API
+// })
 
-const authLink = setContext((_,  {headers}) => {
-  const token = "";
-  return {
-    headers : {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : ""
-    }
+// const authLink = setContext((_,  {headers}) => {
+//   const token = "";
+//   return {
+//     headers : {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : ""
+//     }
+//   }
+// })
+
+// const _client = new ApolloClient({
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache()  
+// });
+
+
+const client = new ApolloClient({
+  uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API,
+  request: operation => {
+    operation.setContext({
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_SPOTIFY_USER_TOKEN}`
+      }
+    })
   }
 })
 
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache()  
-});
+
+
 
 const App = () => {
   return (
