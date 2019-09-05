@@ -6,7 +6,6 @@ import Divider from "@material-ui/core/Divider";
 import Button from '@material-ui/core/Button';
 import { useAuth } from "../use-auth";
 import queryString from 'querystring';
-import loginSVG from './log_in.svg';
 
 const Login = () => {
   const auth = useAuth();
