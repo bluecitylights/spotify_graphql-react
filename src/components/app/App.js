@@ -35,7 +35,7 @@ const client = new ApolloClient({
     const user = JSON.parse(window.localStorage.getItem('sp_user'))
     operation.setContext({
       headers: {
-        Authorization: `Bearer ${user.token}`
+        Authorization: user ? `Bearer ${user.token}` : ""
       }
     })
   }
