@@ -7,7 +7,7 @@ import Icon from "@material-ui/core/Icon";
 import Divider from "@material-ui/core/Divider";
 import { useAuth } from "../useAuth";
 
-const list = [
+const userList = [
   {
     primaryText: "My Playlists",
     icon: "folder",
@@ -17,7 +17,10 @@ const list = [
     primaryText: "Recent",
     icon: "schedule",
     route: "/recent"
-  },
+  }
+];
+
+const list = [
   {
     primaryText: "Search",
     icon: "search",
@@ -29,21 +32,27 @@ const list = [
     route: "/pointlogic"
   }
 ];
+
+const ListItems = ({list}) => {
+  return (list.map(({ primaryText, icon, route }, i) => (
+  <ListItem key={primaryText} selected={i === 0} button component="a" href={route}>
+    <ListItemIcon>
+      <Icon>{icon}</Icon>
+    </ListItemIcon>
+    <ListItemText
+      primary={primaryText}
+      primaryTypographyProps={{ noWrap: true }}
+    />
+  </ListItem>
+)))}
+
 const NavContentEx = () => {
   const auth = useAuth();
   return (
     <List>
-    {list.map(({ primaryText, icon, route }, i) => (
-      <ListItem key={primaryText} selected={i === 0} button component="a" href={route}>
-        <ListItemIcon>
-          <Icon>{icon}</Icon>
-        </ListItemIcon>
-        <ListItemText
-          primary={primaryText}
-          primaryTypographyProps={{ noWrap: true }}
-        />
-      </ListItem>
-    ))}
+    {auth.user && (<ListItems list={userList} />)}
+    <Divider style={{ margin: "12px 0" }} />
+    <ListItems list={list} />
     <Divider style={{ margin: "12px 0" }} />
     <ListItem button>
       <ListItemIcon>
