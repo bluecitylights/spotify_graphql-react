@@ -1,12 +1,12 @@
-import logo from '../../logo.svg';
-import './App.css';
-import React from 'react';
-import ApolloClient, { InMemoryCache } from "apollo-boost";
-import { ApolloProvider } from 'react-apollo';
+import logo from '../../logo.svg'
+import './App.css'
+import React from 'react'
+import ApolloClient, { InMemoryCache } from "apollo-boost"
+import { ApolloProvider } from 'react-apollo'
 import {MyLayout} from '../Layout/Layout'
-import { ProvideAuth } from "../use-auth.js";
-import { createHttpLink } from 'apollo-link-http';
-import { setContext } from 'apollo-link-context';
+import { ProvideAuth } from "../useAuth.js"
+import { createHttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
 
 // this doesnt work, it connectes to localhost:3000/graphql
 // const httpLink = createHttpLink({
@@ -54,4 +54,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default App
