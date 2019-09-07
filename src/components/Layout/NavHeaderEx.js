@@ -50,9 +50,6 @@ const User = ({user, collapsed}) => {
       <Typography variant={"h6"} noWrap>
         {user.display_name}
       </Typography>
-      {/* <Typography color={"textSecondary"} noWrap gutterBottom>
-        {user.display_name}
-      </Typography> */}
       <Logout />
     </React.Fragment>
 )}
