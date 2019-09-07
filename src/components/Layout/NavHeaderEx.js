@@ -108,4 +108,5 @@ NavHeaderEx.defaultProps = {
   collapsed: false
 };
 
-export default NavHeaderEx;
+export {User, NoUser, Login, Logout}
+export default NavHeaderEx
