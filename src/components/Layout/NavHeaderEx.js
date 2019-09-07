@@ -6,6 +6,9 @@ import Divider from "@material-ui/core/Divider";
 import Button from '@material-ui/core/Button';
 import { useAuth } from "../useAuth";
 import queryString from 'querystring';
+import gql from "graphql-tag";
+import {useQuery} from '@apollo/react-hooks';
+
 import * as R from 'ramda'
 
 const Login = () => {
@@ -54,11 +57,28 @@ const User = ({user, collapsed}) => {
     </React.Fragment>
 )}
 
+const QUERY = gql`
+  {
+  me {
+    display_name
+    image
+  }
+}
+
+
+`;
+const QueryUser = () => {
+  const { loading, error, data } = useQuery(QUERY)
+  if (loading) return <p>Loading ...</p>;
+  if (error) return <p>Error ...</p>;
+  return <User user = {{display_name: data.me.display_name, image: data.me.image}}/>
+}
+
 const NavHeaderEx = ({ collapsed }) => {
   const auth = useAuth();
   return (<>
     <div style={{ padding: collapsed ? 8 : 16, transition: "0.3s" }}>
-    {auth.user ? (<User user = {{display_name: "Richard", image: "https://profile-images.scdn.co/images/userprofile/default/8a3ebfc36a61a477ff1dacb4d1aa370c6fe02ce6"}} collapsed = {collapsed} />) : (<Login />)}
+    {auth.user ? (<QueryUser />) : (<Login />)}
     </div>
     <Divider />
   </>)
