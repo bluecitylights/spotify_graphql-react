@@ -6,9 +6,16 @@ import Divider from "@material-ui/core/Divider";
 import Button from '@material-ui/core/Button';
 import { useAuth } from "../useAuth";
 import queryString from 'querystring';
+import * as R from 'ramda'
 
 const Login = () => {
   const auth = useAuth();
+  useEffect(() => {
+    const parsed = queryString.parse(window.location.search);
+    if (parsed["?access_token"]) {
+      auth.signin(parsed["?access_token"]);
+    }
+  });
   return (
   <div className='App'>
       {/* <Button onClick={() => auth.signin()}>Signin</Button> */}
@@ -51,18 +58,9 @@ const User = ({collapsed}) => {
 
 const NavHeaderEx = ({ collapsed }) => {
   const auth = useAuth();
-  useEffect(() => {
-    const parsed = queryString.parse(window.location.search);
-    if (parsed["?access_token"]) {
-      auth.signin(parsed["?access_token"]);
-    }
-  });
   return (<>
     <div style={{ padding: collapsed ? 8 : 16, transition: "0.3s" }}>
-    {auth.user ? 
-      (<User collapsed = {collapsed} />)
-      : (<Login />)
-    }
+    {auth.user ? (<User collapsed = {collapsed} />) : (<Login />)}
     </div>
     <Divider />
   </>)

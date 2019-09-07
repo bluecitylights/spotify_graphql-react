@@ -24,21 +24,9 @@ export const useAuth = () => {
 function useProvideAuth() {
   const [user, setUser] = useLocalStorage('sp_user', null);
   
-  // Wrap any Firebase methods we want to use making sure ...
-  // ... to save the user to state.
   const signin = async (token) => {
-    // const data = await fetch(/*process.env.REACT_APP_SPOTIFY_ANALYZER_LOGIN+*/"http://localhost:4000/login?client_redirect_uri=http://localhost:3000");
-    // const json = data.json();
-    // console.log('sign in');
-    // console.log(json);
-    
-    // const url = process.env.REACT_APP_SPOTIFY_ANALYZER_LOGIN;
-    // const res = await fetch(url);   
-    //const token = "1234"
-    
     const user = {
-        token,
-        email: "test@pointlogic.com"
+        token
     };
     setUser(user);
     return user;
