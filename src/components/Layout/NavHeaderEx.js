@@ -35,13 +35,30 @@ const Logout = () => {
   </div>
 )}
 
+const NoUser = ({collapsed}) => {
+  return(
+  <React.Fragment>
+     
+      <Avatar
+        src = "/spotify_grey.png"
+        style={{
+          width: collapsed ? 48 : 60,
+          height: collapsed ? 48 : 60,
+          transition: "0.3s"
+        }}
+      />
+      <div style={{ paddingBottom: 16 }} />
+      <Login />
+    </React.Fragment>
+)}
+
 
 const User = ({user, collapsed}) => {
   return(
   <React.Fragment>
      
       <Avatar
-        src = {user.image}
+        src = {user.image ? user.image : "/spotify_green.jpg"}
         alt = {user.display_name}
         style={{
           width: collapsed ? 48 : 60,
@@ -78,7 +95,7 @@ const NavHeaderEx = ({ collapsed }) => {
   const auth = useAuth();
   return (<>
     <div style={{ padding: collapsed ? 8 : 16, transition: "0.3s" }}>
-    {auth.user ? (<QueryUser />) : (<Login />)}
+    {auth.user ? (<QueryUser />) : (<NoUser />)}
     </div>
     <Divider />
   </>)
