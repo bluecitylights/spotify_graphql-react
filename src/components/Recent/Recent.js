@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import gql from "graphql-tag";
 import {useQuery} from '@apollo/react-hooks';
 import * as R from 'ramda'
-import {Loading, Error} from './utils'
-import {MediaCard} from './MediaCard'
+import {Loading, Error} from '../Utils/utils'
+import {MediaCard} from '../MediaCard'
 
 
 const GET_RECENT_SONGS = gql`

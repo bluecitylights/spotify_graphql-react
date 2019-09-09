@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import {useRoutes} from 'hookrouter';
 import {OmniSearch} from '../OmniSearch'
-import {Recent} from '../Recent'
+import {Recent} from '../Recent/Recent'
 import {MyPlaylists} from '../MyPlaylists'
 import {Pointlogic} from '../Pointlogic'
 

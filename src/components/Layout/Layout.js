@@ -17,7 +17,7 @@ import ContentForm from "./ContentForm";
 import ContentEx from "./ContentEx";
 import FooterEx from "./FooterEx";
 import {OmniSearch} from '../OmniSearch'
-import {Recent} from '../Recent'
+import {Recent} from '../Recent/Recent'
 
 const {
     createStandardLayout,

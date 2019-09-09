@@ -3,8 +3,8 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import {useQuery} from '@apollo/react-hooks';
 import * as R from 'ramda'
-import {Loading, Error} from './utils'
-import {Artist, Artists} from './Artists'
+import {Loading, Error} from './Utils/utils'
+import {Artist, Artists} from './Artists/Artists'
 import {MediaCard} from './MediaCard'
 
 const QUERY = gql`

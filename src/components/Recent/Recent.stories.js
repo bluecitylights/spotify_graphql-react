@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import {Track, Recent, RecentQuery, GET_RECENT_SONGS, Tracks} from './Recent'
-import {withMocks} from './withMocks'
+import {withMocks} from '../withMocks'
 
 const mocks = [{
   request: {
