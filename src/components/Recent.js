@@ -6,7 +6,7 @@ import {Loading, Error} from './utils'
 import {MediaCard} from './MediaCard'
 
 
-const QUERY = gql`
+const GET_RECENT_SONGS = gql`
 query {
   me {
     player {
@@ -32,7 +32,7 @@ const searchItemToCard = R.cond([
     [R.propEq('__typename', 'Track'), Track]
   ]);
   
-const SearchResults = R.map(searchItemToCard)
+const SearchResults = R.map(Track)
   
   const QueryResponse = R.cond([
     [R.prop('loading'), Loading],
@@ -41,7 +41,7 @@ const SearchResults = R.map(searchItemToCard)
   ]);
 
 const RecentQuery = () => {
-    const queryResult = useQuery(QUERY);
+    const queryResult = useQuery(GET_RECENT_SONGS);
     
     return <div>{
       QueryResponse(queryResult)
@@ -51,4 +51,4 @@ const RecentQuery = () => {
 const Recent = RecentQuery
 
 
-export {Recent}
+export {Recent, RecentQuery, GET_RECENT_SONGS, Track, SearchResults}
