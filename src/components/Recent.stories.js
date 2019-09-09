@@ -1,9 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import {Track, Recent, RecentQuery, GET_RECENT_SONGS, SearchResults} from './Recent'
+import {Track, Recent, RecentQuery, GET_RECENT_SONGS, Tracks} from './Recent'
 import {withMocks} from './withMocks'
-import * as R from 'ramda'
-
 
 const mocks = [{
   request: {
@@ -77,5 +75,5 @@ storiesOf('RecentQuery', module)
       <Track id="1234" name="Revival 80s" artists={[{name:"Mutant Beat Dance"}]}/>
   ))
 
-  storiesOf('SearchResults', module)
-    .add('SearchResults', () => SearchResults(mocks[0].result.data.me.player.recent))
+  storiesOf('Tracks', module)
+    .add('Tracks', () => Tracks(mocks[0].result.data.me.player.recent))

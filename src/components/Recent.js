@@ -26,18 +26,12 @@ const Track = ({id, name, artists}) => (
         <MediaCard title = {name} content = {R.pluck("name")(artists)} /> 
     )
   
-const searchItemToCard = R.cond([
-    //[R.propEq('__typename', 'Artist'), Artist],
-    //[R.propEq('__typename', 'Album'), Album],
-    [R.propEq('__typename', 'Track'), Track]
-  ]);
-  
-const SearchResults = R.map(Track)
+const Tracks = R.map(Track)
   
   const QueryResponse = R.cond([
     [R.prop('loading'), Loading],
     [R.prop('error'), Error],
-    [R.T, R.pipe(R.path(['data', 'me', 'player', 'recent']), SearchResults)]
+    [R.T, R.pipe(R.path(['data', 'me', 'player', 'recent']), Tracks)]
   ]);
 
 const RecentQuery = () => {
@@ -51,4 +45,4 @@ const RecentQuery = () => {
 const Recent = RecentQuery
 
 
-export {Recent, RecentQuery, GET_RECENT_SONGS, Track, SearchResults}
+export {Recent, RecentQuery, GET_RECENT_SONGS, Track, Tracks}
