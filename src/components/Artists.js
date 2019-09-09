@@ -6,7 +6,7 @@ import * as R from 'ramda'
 import {Loading, Error} from './utils'
 import {MediaCard} from './MediaCard'
 
-const QUERY = gql`
+const GET_ARTIST_QUERY = gql`
   query artists($artistFilter: String) {
   artists(byName: $artistFilter)
   {
@@ -40,7 +40,7 @@ const ArtistsResponse = R.cond([
 ]);
 
 const ArtistsQuery = ({artistFilter}) => {
-  const queryResult = useQuery(QUERY, {
+  const queryResult = useQuery(GET_ARTIST_QUERY, {
     variables: {artistFilter}
   });
   
@@ -60,6 +60,6 @@ const ArtistSearch = () => {
   )
 }
 
-export {Artist, Artists, ArtistSearch}
+export {Artist, Artists, ArtistSearch, ArtistsQuery, GET_ARTIST_QUERY}
 
 export default ArtistSearch;
