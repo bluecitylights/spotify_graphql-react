@@ -30,9 +30,6 @@ const Artist = ({id, image, name}) => (
 
 const Artists = R.map(Artist)
 
-const bla = (component, prop) => R.pipe(R.path(['data', prop]), component)
-
-
 const ArtistsResponse = R.cond([
   [R.prop('loading'), Loading],
   [R.prop('error'), Error],
@@ -44,9 +41,7 @@ const ArtistsQuery = ({artistFilter}) => {
     variables: {artistFilter}
   });
   
-  return <div>{
-    ArtistsResponse(queryResult)
-  }</div>
+  return (ArtistsResponse(queryResult))  
 };
 
 const ArtistSearch = () => {

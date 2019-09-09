@@ -12,14 +12,6 @@ storiesOf('Artist', module)
         <Artist id="1234" image="/favicon.ico" name="robin s"/>
     ))
 
-
-
-// storiesOf('ArtistsResponse', module)
-//     .add('ArtistsResponse', () => (
-//         <ArtistsResponse />
-//     ))
-
-
 const mocks = [
     {
       request: {
@@ -85,4 +77,7 @@ storiesOf('ArtistSearch', module)
     .add('ArtistSearch', () => (
         <ArtistSearch />
     ))
+
+storiesOf('Artists', module)
+    .add('Artists', () => Artists(mocks[0].result.data.artists))
 
