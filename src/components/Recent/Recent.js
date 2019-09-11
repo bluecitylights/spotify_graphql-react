@@ -37,9 +37,7 @@ const Tracks = R.map(Track)
 const RecentQuery = () => {
     const queryResult = useQuery(GET_RECENT_SONGS);
     
-    return <div>{
-      QueryResponse(queryResult)
-    }</div>
+    return QueryResponse(queryResult)
   };
 
 const Recent = RecentQuery

@@ -1,31 +1,38 @@
 import React from 'react';
-import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import Playlist from './Playlist';
 import {useQuery} from '@apollo/react-hooks';
+import * as R from 'ramda'
+import {Loading, Error} from '../Utils/utils'
+import {MediaCard} from '../MediaCard'
 
-const QUERY = gql`
-  query ($playlist_ids: [String]) {
-    playlists(ids: $playlist_ids) {
-      id
-      name
-      image
-    }
+const GET_PLAYLISTS_BY_ID = gql`
+query playlists($playlistids: [String]) {
+  playlists (ids: $playlistids) {
+    name
+    image
   }
+}
+
 `;
 
-const Playlists = ({ids}) => {
-  const { data, error, loading } = useQuery(QUERY, {
-    variables: {playlist_ids: ids}
+const Playlist = ({id, name, image}) => (
+  <MediaCard image = {image} title = {name} content = {name}/> 
+  )
+  
+const Playlists = R.map(Playlist)
+  
+const QueryResponse = R.cond([
+    [R.prop('loading'), Loading],
+    [R.prop('error'), Error],
+    [R.T, R.pipe(R.path(['data', 'playlists']), Playlists)]
+  ]);
+
+const PlaylistQuery = ({playlistids}) => {
+  const queryResult = useQuery(GET_PLAYLISTS_BY_ID, {
+    variables: {playlistids}
   });
   
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!(</p>;
-  if (!data.playlists) return <p>No data(</p>;
-  const playlists = data.playlists.map((current) => (
-    <Playlist playlist={current} />
-  ));
-  return <div>{playlists}</div>
+  return QueryResponse(queryResult)
 };
 
-export default Playlists;
+export {GET_PLAYLISTS_BY_ID, Playlists, Playlist, PlaylistQuery}

@@ -6,8 +6,8 @@ import Link from "@material-ui/core/Link";
 import {useRoutes} from 'hookrouter';
 import {OmniSearch} from '../OmniSearch'
 import {Recent} from '../Recent/Recent'
-import {MyPlaylists} from '../MyPlaylists'
-import {Pointlogic} from '../Pointlogic'
+import {MyPlaylists} from '../playlist/MyPlaylists'
+import {Pointlogic} from '../playlist/Pointlogic'
 
 const styles = ({ breakpoints }) => ({
   root: {
