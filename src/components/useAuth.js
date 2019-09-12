@@ -31,7 +31,8 @@ function useProvideAuth() {
 
   const signout = () => {
     setUser(null);
-    window.location = "http://localhost:3000"; // todo
+
+    window.location = `${window.location.origin.toString()}`; 
     return null;
   };
 
