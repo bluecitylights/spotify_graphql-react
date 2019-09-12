@@ -70,7 +70,7 @@ storiesOf('RecentQuery', module)
   .add('RecentQuery', () => (<RecentQuery/>))
 
 
-  storiesOf('Track', module)
+storiesOf('Track', module)
   .add('track', () => (
       <Track id="1234" name="Revival 80s" artists={[{name:"Mutant Beat Dance"}]}/>
   ))
