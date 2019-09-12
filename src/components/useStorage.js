@@ -1,12 +1,13 @@
-import { useState} from "react";
+import { useState} from "react"
+import * as R from 'ramda'
 
-export const useLocalStorage = (key, initialValue) => {
+const useStorage = (storage, key, initialValue) => {
     // State to store our value
     // Pass initial state function to useState so logic is only executed once
     const [storedValue, setStoredValue] = useState(() => {
         try {
             // Get from local storage by key
-            const item = window.localStorage.getItem(key);
+            const item = storage.getItem(key);
             // Parse stored json or if none return initialValue
             return item ? JSON.parse(item) : initialValue;
             } catch (error) {
@@ -17,7 +18,7 @@ export const useLocalStorage = (key, initialValue) => {
     });
 
     // Return a wrapped version of useState's setter function that ...
-    // ... persists the new value to localStorage.
+    // ... persists the new value to sessionStorage.
     const setValue = value => {
         try {
             // Allow value to be a function so we have same API as useState
@@ -26,7 +27,7 @@ export const useLocalStorage = (key, initialValue) => {
             // Save state
             setStoredValue(valueToStore);
             // Save to local storage
-            window.localStorage.setItem(key, JSON.stringify(valueToStore));
+            storage.setItem(key, JSON.stringify(valueToStore));
             } catch (error) {
             // A more advanced implementation would handle the error case
             console.log(error);
@@ -35,4 +36,10 @@ export const useLocalStorage = (key, initialValue) => {
 
     return [storedValue, setValue];
 }
+
+const useLocalStorage = R.curry(useStorage)(window.localStorage)
+const useSessionStorage = R.curry(useStorage)(window.sessionStorage)
+
+export {useLocalStorage, useSessionStorage}
+
   

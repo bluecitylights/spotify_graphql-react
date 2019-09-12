@@ -1,5 +1,5 @@
 import React, { useContext, createContext } from "react";
-import {useLocalStorage} from './useLocalStorage'
+import {useSessionStorage} from './useStorage'
 
 const authContext = createContext();
 
@@ -19,7 +19,7 @@ export const useAuth = () => {
 
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
-  const [user, setUser] = useLocalStorage('sp_user', null);
+  const [user, setUser] = useSessionStorage('sp_user', null);
   
   const signin = async (token) => {
     const user = {
