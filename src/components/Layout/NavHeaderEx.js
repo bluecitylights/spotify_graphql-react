@@ -9,8 +9,6 @@ import queryString from 'querystring';
 import gql from "graphql-tag";
 import {useQuery} from '@apollo/react-hooks';
 
-import * as R from 'ramda'
-
 const Login = () => {
   const auth = useAuth();
   useEffect(() => {

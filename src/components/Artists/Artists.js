@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import {useQuery} from '@apollo/react-hooks';
 import * as R from 'ramda'

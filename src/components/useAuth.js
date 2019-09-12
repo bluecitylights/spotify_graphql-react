@@ -1,7 +1,4 @@
-// Hook (use-auth.js)
-import React, { useState, useEffect, useContext, createContext } from "react";
-import gql from "graphql-tag";
-import {useQuery, useApolloClient} from '@apollo/react-hooks';
+import React, { useContext, createContext } from "react";
 import {useLocalStorage} from './useLocalStorage'
 
 const authContext = createContext();
