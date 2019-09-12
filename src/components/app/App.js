@@ -26,8 +26,6 @@ import { ProvideAuth } from "../useAuth.js"
 //   link: authLink.concat(httpLink),
 //   cache: new InMemoryCache()  
 // });
-
-
 const client = new ApolloClient({
   uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API,
   request: operation => {

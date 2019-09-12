@@ -64,7 +64,8 @@ const styles = ({ spacing, transitions, breakpoints, palette, shape }) => ({
 const HeaderEx = ({ classes, screen }) => (
   <>
     <Typography noWrap color={"textSecondary"} className={classes.header}>
-      Spotify
+      {process.env.REACT_APP_SPOTIFY_ANALYZER_API}
+      {process.env.REACT_APP_SPOTIFY_ANALYZER_LOGIN}
     </Typography>
     <div className={classes.grow} />
     <div className={classes.search}>
