@@ -9,7 +9,7 @@ import { ProvideAuth } from "../useAuth.js"
 
 // this doesnt work, it connectes to localhost:3000/graphql
 // const httpLink = createHttpLink({
-//   uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API
+//   uri: window._env_.REACT_APP_SPOTIFY_ANALYZER_API
 // })
 
 // const authLink = setContext((_,  {headers}) => {
@@ -27,7 +27,7 @@ import { ProvideAuth } from "../useAuth.js"
 //   cache: new InMemoryCache()  
 // });
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_SPOTIFY_ANALYZER_API,
+  uri: window._env_.REACT_APP_SPOTIFY_ANALYZER_API,
   request: operation => {
     const user = JSON.parse(window.sessionStorage.getItem('sp_user')) // todo: get from auth context instead of localstorage
     operation.setContext({
@@ -45,7 +45,7 @@ const App = () => {
   return (
     <ProvideAuth>
       <ApolloProvider client={client}>
-        <MyLayout/>
+      <MyLayout/>
       </ApolloProvider>
     </ProvideAuth>
     )
