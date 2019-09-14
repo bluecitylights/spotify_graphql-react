@@ -27,7 +27,7 @@ import { ProvideAuth } from "../useAuth.js"
 //   cache: new InMemoryCache()  
 // });
 const client = new ApolloClient({
-  uri: window._env_.REACT_APP_SPOTIFY_ANALYZER_API,
+  uri: (window._env_ || process.env).REACT_APP_SPOTIFY_ANALYZER_API,
   request: operation => {
     const user = JSON.parse(window.sessionStorage.getItem('sp_user')) // todo: get from auth context instead of localstorage
     operation.setContext({
