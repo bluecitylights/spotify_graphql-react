@@ -9,6 +9,11 @@ import { useAuth } from "../useAuth";
 
 const userList = [
   {
+    primaryText: "Player",
+    icon: "play_circle_filled",
+    route: "/player"
+  },
+  {
     primaryText: "My Playlists",
     icon: "folder",
     route: "/playlists"

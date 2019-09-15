@@ -64,8 +64,7 @@ const styles = ({ spacing, transitions, breakpoints, palette, shape }) => ({
 const HeaderEx = ({ classes, screen }) => (
   <>
     <Typography noWrap color={"textSecondary"} className={classes.header}>
-      {(window._env_ || process.env).REACT_APP_SPOTIFY_ANALYZER_API}
-      {(window._env_ || process.env).REACT_APP_SPOTIFY_ANALYZER_LOGIN}
+      SPOTIFY
     </Typography>
     <div className={classes.grow} />
     <div className={classes.search}>

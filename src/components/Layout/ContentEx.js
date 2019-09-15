@@ -8,6 +8,7 @@ import {OmniSearch} from '../OmniSearch'
 import {Recent} from '../Recent/Recent'
 import {MyPlaylists} from '../playlist/MyPlaylists'
 import {Pointlogic} from '../playlist/Pointlogic'
+import {Player} from '../Player/MediaControlCard'
 
 const styles = ({ breakpoints }) => ({
   root: {
@@ -28,7 +29,8 @@ const routes = {
   "/playlists": () => <MyPlaylists />,
   "/recent": () => <Recent />,
   "/search": () => <OmniSearch />,
-  "/pointlogic": () => <Pointlogic />
+  "/pointlogic": () => <Pointlogic />,
+  "/player": () => <Player />
 };
 
 const ContentEx = ({ classes }) => {
