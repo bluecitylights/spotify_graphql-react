@@ -73,22 +73,4 @@ const MediaControlCard = ({image, title, artists}) => {
    );
 }
 
-
-const current = {
-    name: "186 Halin' (Loving Myself Mix)",
-    artists: [
-      {
-        name: "Jayda G"
-      },
-      {
-        name: "Laylay"
-      }
-    ],
-    image: "/spotify_green.jpg"
-  }
-
-const Player = () => (
-    <MediaControlCard image={current.image} title={current.name} artists={current.artists}/>
-)
-
-export { MediaControlCard, Player}
+export { MediaControlCard}

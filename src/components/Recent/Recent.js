@@ -28,7 +28,7 @@ const Track = ({id, name, artists}) => (
   
 const Tracks = R.map(Track)
   
-  const QueryResponse = R.cond([
+const QueryResponse = R.cond([
     [R.prop('loading'), Loading],
     [R.prop('error'), Error],
     [R.T, R.pipe(R.path(['data', 'me', 'player', 'recent']), Tracks)]
