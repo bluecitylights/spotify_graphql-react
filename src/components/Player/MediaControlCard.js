@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const MediaControlCard = ({image, title, artists}) => {
+const MediaControlCard = ({image, title, artists, next, previous, play, pause}) => {
     const classes = useStyles();
     const theme = useTheme();
         
@@ -53,13 +53,13 @@ const MediaControlCard = ({image, title, artists}) => {
           </Typography>
         </CardContent>
         <div className={classes.controls}>
-          <IconButton aria-label="previous">
+          <IconButton aria-label="previous" onClick = {previous}>
             {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
           </IconButton>
-          <IconButton aria-label="play/pause">
+          <IconButton aria-label="play/pause" onClick = {play}>
             <PlayArrowIcon className={classes.playIcon} />
           </IconButton>
-          <IconButton aria-label="next">
+          <IconButton aria-label="next" onClick = {next}>
             {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
           </IconButton>
         </div>
