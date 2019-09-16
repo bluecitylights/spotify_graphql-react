@@ -70,18 +70,50 @@ const PAUSE = gql`
 
 // todo: https://reactgo.com/react-hooks-apollo/
 
-const Player = () => {
-    const queryResult = useQuery(GET_CURRENT_TRACK);
-    const [setNextTrack, { loading, error }] = useMutation(SET_NEXT_TRACK)
-    //const [setPreviousTrack, { loading, error }] = useMutation(SET_PREVIOUS_TRACK)
-    //const [play, { loading, error }] = useMutation(PLAY)
-    //const [pause, { loading, error }] = useMutation(PAUSE)
+const usePlayer = () => {
+    const {data, loading: currentLoading, error: currentError} = useQuery(GET_CURRENT_TRACK);
+    const [setNextTrack, { loading: nextLoading, error: nextError }] = useMutation(SET_NEXT_TRACK)
+    const [setPreviousTrack, { loading: previousLoading, error: previousError }] = useMutation(SET_PREVIOUS_TRACK)
+    const [setPause, { loading: pauseLoading, error: pauseError }] = useMutation(PAUSE)
+    const [setPlay, { loading: playLoading, error: playError }] = useMutation(PLAY)
+    
+    const handleNext = (event) => {
+        setNextTrack({refetchQueries: [{query:GET_CURRENT_TRACK}]})
+    }
+    const handlePrevious = (event) => {
+        setPreviousTrack({refetchQueries: [{query:GET_CURRENT_TRACK}]})
+    }
 
-    if (queryResult.loading) return (<Loading />)
-    if (queryResult.error) return (<Error />)
+    const handlePlay = (event) => {
+        setPlay({refetchQueries: [{query:GET_CURRENT_TRACK}]})
+    }
+
+    const handlePause = (event) => {
+        setPause({refetchQueries: [{query:GET_CURRENT_TRACK}]})
+    }
+
+    let loading = currentLoading || nextLoading || previousLoading || pauseLoading || playLoading;
+    let error = currentError || nextError || previousError || pauseError || playError;
+    
+    return {
+        data,
+        handleNext,
+        handlePrevious,
+        handlePlay,
+        handlePause,
+        loading,
+        error
+    }
+}
+
+const Player = () => {
+    const player = usePlayer();
+
+    if (player.loading) return (<Loading />)
+    if (player.error) return (<Error />)
     return (
-        <MediaControlCard image="/spotify_green.jpg" title={queryResult.data.me.player.current.name} artists={queryResult.data.me.player.current.artists} next={setNextTrack} /> //previous={setPreviousTrack} play={play} pause={pause}/>
+        <MediaControlCard image="/spotify_green.jpg" title={player.data.me.player.current.name} artists={player.data.me.player.current.artists} next={player.handleNext} previous={player.handlePrevious} play={player.handlePlay} pause={player.handlePause}/>
     )
 }
 
-export {Player, GET_CURRENT_TRACK}
+export {Player, GET_CURRENT_TRACK, SET_NEXT_TRACK}

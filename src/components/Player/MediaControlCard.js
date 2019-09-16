@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
+import PauseIcon from '@material-ui/icons/Pause';
 
 import * as R from 'ramda'
 
@@ -58,6 +59,9 @@ const MediaControlCard = ({image, title, artists, next, previous, play, pause}) 
           </IconButton>
           <IconButton aria-label="play/pause" onClick = {play}>
             <PlayArrowIcon className={classes.playIcon} />
+          </IconButton>
+          <IconButton aria-label="xxxplay/pause" onClick = {pause}>
+            <PauseIcon className={classes.pauseIcon} />
           </IconButton>
           <IconButton aria-label="next" onClick = {next}>
             {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
