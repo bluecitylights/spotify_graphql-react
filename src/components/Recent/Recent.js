@@ -12,6 +12,7 @@ query {
     player {
       recent {
         name
+        image
         artists {
           name
         }
@@ -22,8 +23,8 @@ query {
 
 `;
 
-const Track = ({id, name, artists}) => (
-        <MediaCard title = {name} content = {R.pluck("name")(artists)} /> 
+const Track = ({id, name, image, artists}) => (
+        <MediaCard image={image} title = {name} content = {R.pluck("name")(artists)} /> 
     )
   
 const Tracks = R.map(Track)

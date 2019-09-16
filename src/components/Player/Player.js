@@ -11,6 +11,7 @@ const GET_CURRENT_TRACK = gql`
             player {
                 current {
                     name
+                    image
                     artists {
                         name
                     }
@@ -112,7 +113,7 @@ const Player = () => {
     if (player.loading) return (<Loading />)
     if (player.error) return (<Error />)
     return (
-        <MediaControlCard image="/spotify_green.jpg" title={player.data.me.player.current.name} artists={player.data.me.player.current.artists} next={player.handleNext} previous={player.handlePrevious} play={player.handlePlay} pause={player.handlePause}/>
+        <MediaControlCard image={player.data.me.player.current.image || "/spotify_green.jpg"} title={player.data.me.player.current.name} artists={player.data.me.player.current.artists} next={player.handleNext} previous={player.handlePrevious} play={player.handlePlay} pause={player.handlePause}/>
     )
 }
 
