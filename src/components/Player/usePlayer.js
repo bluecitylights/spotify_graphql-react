@@ -74,8 +74,9 @@ const usePlayer = () => {
     let loading = currentLoading || nextLoading || previousLoading || pauseLoading || playLoading;
     let error = currentError || nextError || previousError || pauseError || playError;
     
+    let current = data ? data.me.player.current : null
     return {
-        data,
+        current,
         handleNext,
         handlePrevious,
         handlePlay,
