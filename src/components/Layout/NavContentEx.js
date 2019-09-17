@@ -30,7 +30,7 @@ const userList = [
   },
   {
     primaryText: "My Top Artists",
-    icon: "favorite_border",
+    icon: "face",
     route: "/topArtists"
   }
 ];
