@@ -14,6 +14,7 @@ const mocks = [{
             recent: [
               {
                 name: "Revival 80s",
+                image: "/spotify_green.jpg",
                 artists: [
                   {
                     name: "Mutant Beat Dance"
@@ -22,6 +23,7 @@ const mocks = [{
               },
               {
                 name: "186 Halin' (Loving Myself Mix)",
+                image: "/spotify_green.jpg",
                 artists: [
                   {
                     name: "Jayda G"
@@ -33,6 +35,7 @@ const mocks = [{
               },
               {
                 name: "Move to the Front (Disco Mix) - Edit",
+                image: "/spotify_green.jpg",
                 artists: [
                   {
                     name: "Jayda G"
@@ -41,6 +44,7 @@ const mocks = [{
               },
               {
                 name: "Phantom Dance",
+                image: "/spotify_green.jpg",
                 artists: [
                   {
                     name: "Mr. Mitch"
@@ -49,6 +53,7 @@ const mocks = [{
               },
               {
                 name: "VYZEE",
+                image: "/spotify_green.jpg",
                 artists: [
                   {
                     name: "SOPHIE"

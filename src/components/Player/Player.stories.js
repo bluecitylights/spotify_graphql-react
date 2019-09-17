@@ -14,6 +14,7 @@ const mocks = [{
         player: {
           current: {
             name: "Revival 80s",
+            image: null,
             artists: [
               {
                 name: "Mutant Beat Dance"
@@ -36,6 +37,7 @@ const mocks = [{
           player: {
             next: {
               name: "Move to the Front (Disco Mix) - Edit",
+              image: null,
               artists: [
                 {
                   name: "Jayda G"
