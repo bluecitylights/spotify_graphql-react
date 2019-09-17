@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import {Player, GET_CURRENT_TRACK, SET_NEXT_TRACK} from './Player'
-
+import {Player} from './Player'
+import {GET_CURRENT_TRACK, SET_NEXT_TRACK} from './usePlayer'
 import {withMocks} from '../withMocks'
 
 const mocks = [{
@@ -50,7 +50,6 @@ const mocks = [{
 ];
 
 const withMockCurrent = withMocks(mocks)
-
 storiesOf('Player', module)
 .addDecorator(withMockCurrent)  
 .add('Player', () => (

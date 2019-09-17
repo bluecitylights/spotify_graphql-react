@@ -70,7 +70,7 @@ const MediaControlCard = ({image, title, artists, next, previous, play, pause}) 
       </div>
       <CardMedia
         className={classes.cover}
-        image={image}
+        image={image || "/spotify_green.jpg"}
         title={title}
       />
     </Card>
