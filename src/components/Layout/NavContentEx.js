@@ -22,6 +22,11 @@ const userList = [
     primaryText: "Recent",
     icon: "schedule",
     route: "/recent"
+  },
+  {
+    primaryText: "My Top Songs",
+    icon: "favorite",
+    route: "/topTracks"
   }
 ];
 

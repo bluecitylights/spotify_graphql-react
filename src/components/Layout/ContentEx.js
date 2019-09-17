@@ -9,6 +9,7 @@ import {Recent} from '../Recent/Recent'
 import {MyPlaylists} from '../playlist/MyPlaylists'
 import {Pointlogic} from '../playlist/Pointlogic'
 import {Player} from '../Player/Player'
+import {TopTracks} from '../Statistics/TopTracks'
 
 const styles = ({ breakpoints }) => ({
   root: {
@@ -30,7 +31,8 @@ const routes = {
   "/recent": () => <Recent />,
   "/search": () => <OmniSearch />,
   "/pointlogic": () => <Pointlogic />,
-  "/player": () => <Player />
+  "/player": () => <Player />,
+  "/topTracks": () => <TopTracks />
 };
 
 const ContentEx = ({ classes }) => {
