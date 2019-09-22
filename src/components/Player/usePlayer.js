@@ -45,7 +45,9 @@ const PLAY = gql`
 
 const PAUSE = gql`
     mutation {
-        pause
+        pause {
+            name
+        }
     }
 `;
 
