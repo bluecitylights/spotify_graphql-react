@@ -1,6 +1,7 @@
-import React from 'react';
-import gql from "graphql-tag";
-import {useQuery} from '@apollo/react-hooks';
+import React from 'react'
+import gql from "graphql-tag"
+import {useQuery} from '@apollo/react-hooks'
+import {navigate} from 'hookrouter'
 import * as R from 'ramda'
 import {Loading, Error} from '../Utils/utils'
 import {MediaCard} from '../MediaCard'
@@ -8,16 +9,23 @@ import {MediaCard} from '../MediaCard'
 const GET_PLAYLISTS_BY_ID = gql`
 query playlists($playlistids: [String]) {
   playlists (ids: $playlistids) {
+    id
     name
     image
+    description
   }
 }
 
 `;
 
-const Playlist = ({id, name, image}) => (
-  <MediaCard image = {image} title = {name} content = {name}/> 
+const Playlist = ({id, name, image, description}) => {
+  const onPlay = () => {
+    navigate(`/player/spotify:playlist:${id}`)
+  }
+  return(
+  <MediaCard image = {image} title = {name} content = {description} play={onPlay} /> 
   )
+}
   
 const Playlists = R.map(Playlist)
   

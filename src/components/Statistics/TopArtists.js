@@ -10,6 +10,7 @@ query {
   me {
     stats {
       topArtists {
+        id
         name
         image
 			}

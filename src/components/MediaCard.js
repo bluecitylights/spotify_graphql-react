@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MediaCard = ({image, title, content}) => {
+const MediaCard = ({image, title, content, play}) => {
   const classes = useStyles();
 
     return (
@@ -38,11 +38,14 @@ const MediaCard = ({image, title, content}) => {
             </CardContent>
         </CardActionArea>
         <CardActions>
-            <Button size="small" color="primary">
+            {/* <Button size="small" color="primary">
             Share
             </Button>
             <Button size="small" color="primary">
             Learn More
+            </Button> */}
+            <Button size="small" color="primary" onClick={play}>
+            Play
             </Button>
         </CardActions>
         </Card>

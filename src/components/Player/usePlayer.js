@@ -6,9 +6,11 @@ const GET_CURRENT_TRACK = gql`
         me {
             player {
                 current {
+                    id
                     name
                     image
                     artists {
+                        id
                         name
                     }
                 }
@@ -21,54 +23,95 @@ const GET_CURRENT_TRACK = gql`
 const SET_NEXT_TRACK = gql`
     mutation {
         next {
+            id
             name
+            image
+            artists {
+                id
+                name
+            }
         }
     }
 `;
 
 const SET_PREVIOUS_TRACK = gql`
     mutation {
-        next {
+        previous {
+            id
             name
+            image
+            artists {
+                id
+                name
+            }
         }
     }
 `;
 
 
 const PLAY = gql`
-    mutation {
-        play {
+    mutation play($playContext: PlayContext){
+        play(playContext: $playContext) {
+            id
             name
+            image
+            artists {
+                id
+                name
+            }
         }
     }
 `;
 
 const PAUSE = gql`
     mutation {
-        pause
+        pause {
+            id
+            name
+            image
+            artists {
+                id
+                name
+            }
+        }
     }
 `;
 
 const usePlayer = () => {
-    const {data, loading: currentLoading, error: currentError} = useQuery(GET_CURRENT_TRACK);
     const [setNextTrack, { loading: nextLoading, error: nextError }] = useMutation(SET_NEXT_TRACK)
     const [setPreviousTrack, { loading: previousLoading, error: previousError }] = useMutation(SET_PREVIOUS_TRACK)
     const [setPause, { loading: pauseLoading, error: pauseError }] = useMutation(PAUSE)
     const [setPlay, { loading: playLoading, error: playError }] = useMutation(PLAY)
+    const {data, loading: currentLoading, error: currentError} = useQuery(GET_CURRENT_TRACK)
     
     const handleNext = (event) => {
-        setNextTrack({refetchQueries: [{query:GET_CURRENT_TRACK}]})
+        setNextTrack({
+            refetchQueries: [{
+                query: GET_CURRENT_TRACK
+            }]
+        })
     }
     const handlePrevious = (event) => {
-        setPreviousTrack({refetchQueries: [{query:GET_CURRENT_TRACK}]})
+        setPreviousTrack({
+            refetchQueries: [{
+                query: GET_CURRENT_TRACK
+            }]
+        })
     }
 
-    const handlePlay = (event) => {
-        setPlay({refetchQueries: [{query:GET_CURRENT_TRACK}]})
+    const handlePlay = (playContext) => {
+        setPlay({
+            variables: {
+                playContext
+            },
+            refetchQueries: [{
+                 query: GET_CURRENT_TRACK
+            }]
+        })
     }
 
     const handlePause = (event) => {
-        setPause({refetchQueries: [{query:GET_CURRENT_TRACK}]})
+        setPause()
     }
 
     let loading = currentLoading || nextLoading || previousLoading || pauseLoading || playLoading;

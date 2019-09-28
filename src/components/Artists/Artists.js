@@ -4,6 +4,7 @@ import {useQuery} from '@apollo/react-hooks';
 import * as R from 'ramda'
 import {Loading, Error} from '../Utils/utils'
 import {MediaCard} from '../MediaCard'
+import {navigate} from 'hookrouter'
 
 const GET_ARTIST_QUERY = gql`
   query artists($artistFilter: String) {
@@ -16,16 +17,13 @@ const GET_ARTIST_QUERY = gql`
 }
 `;
 
-const Artist = ({id, image, name}) => (
-  <MediaCard image = {image} title = {name} content = "Artist" /> 
-  // <div key={id} className="card" style={{'width': '100%', 'marginTop': '10px'}}>
-  //     <div className="card-body">
-  //         <h5 className="card-title">{name}</h5>
-  //         <h6 className="card-subtitle mb-2 text-muted">{id}</h6>
-  //         <img src={image} alt="new" />
-  //     </div>
-  // </div>
-)
+const Artist = ({id, image, name}) => {
+  const onPlay = () => {
+    navigate(`/player/spotify:artist:${id}`)
+  }
+  return (
+  <MediaCard image = {image} title = {name} content = "Artist" play = {onPlay}/> 
+)}
 
 const Artists = R.map(Artist)
 

@@ -10,9 +10,11 @@ query {
   me {
     stats {
       topTracks {
+        id
         name
         image
         artists {
+          id
           name
         }
 			}

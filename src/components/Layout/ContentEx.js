@@ -8,7 +8,7 @@ import {OmniSearch} from '../OmniSearch'
 import {Recent} from '../Recent/Recent'
 import {MyPlaylists} from '../playlist/MyPlaylists'
 import {Pointlogic} from '../playlist/Pointlogic'
-import {Player} from '../Player/Player'
+import {Player, PlayerEx} from '../Player/Player'
 import {TopTracks} from '../Statistics/TopTracks'
 import {TopArtists} from '../Statistics/TopArtists'
 
@@ -33,6 +33,7 @@ const routes = {
   "/search": () => <OmniSearch />,
   "/pointlogic": () => <Pointlogic />,
   "/player": () => <Player />,
+  "/player/:id": ({id}) => <PlayerEx uri={id} />,
   "/topTracks": () => <TopTracks />,
   "/topArtists": () => <TopArtists />
 };

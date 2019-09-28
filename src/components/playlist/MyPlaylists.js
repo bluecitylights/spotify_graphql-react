@@ -8,6 +8,7 @@ const GET_MY_PLAYLISTS = gql`
 query {
   me {
     playlists {
+      id
       name
       image
     }

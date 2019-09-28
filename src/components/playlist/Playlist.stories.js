@@ -13,8 +13,8 @@ const mocks = [{
   result: {
     data: {
       playlists: [
-        { id: '1', name: 'Black Magic', image: "/spotify_green.jpg" },
-        { id: '2', name: 'Hip Hop Be Bop', image: "/spotify_grey.png" }
+        { id: '1', name: 'Black Magic', image: "/spotify_green.jpg", description: "this is playlist 1" },
+        { id: '2', name: 'Hip Hop Be Bop', image: "/spotify_grey.png", description: null}
       ]
     },
   },
