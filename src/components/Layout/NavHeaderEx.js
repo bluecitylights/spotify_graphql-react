@@ -85,7 +85,7 @@ const QUERY = gql`
 const QueryUser = () => {
   const { loading, error, data } = useQuery(QUERY)
   if (loading) return <p>Loading ...</p>;
-  if (error) return <p>Error ...</p>;
+  if (error) return <NoUser/>;
   return <User user = {{display_name: data.me.display_name, image: data.me.image}}/>
 }
 

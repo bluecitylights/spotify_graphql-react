@@ -21,7 +21,7 @@ const PlayerEx = ({uri}) => {
             }
         }
         player.handlePlay(playContext)
-    }, [uri])
+    }, [uri, player])
     
     if (player.loading) return (<Loading />)
     if (player.error) return (<Error />)
@@ -38,7 +38,7 @@ const Player = () => {
     if (player.error) return (<Error />)
     if (!player.current) return (<MediaCard image = "/spotify_green.jpg" title = "No player active" content = "Make sure that spotify is active on a device" />)
     return (
-        <MediaControlCard image={player.current.image} title={player.current.name} artists={player.current.artists} next={player.handleNext} previous={player.handlePrevious} play={onPlay} pause={player.handlePause}/>
+        <MediaControlCard track={player.current} next={player.handleNext} previous={player.handlePrevious} play={onPlay} pause={player.handlePause} />
     )
 }
 

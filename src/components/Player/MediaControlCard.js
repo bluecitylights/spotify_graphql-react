@@ -9,6 +9,7 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import PauseIcon from '@material-ui/icons/Pause';
+import { LinearProgress } from '@material-ui/core'
 
 import * as R from 'ramda'
 
@@ -38,7 +39,19 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const MediaControlCard = ({image, title, artists, next, previous, play, pause}) => {
+const toTimeString = (milliSeconds) => {
+  let seconds = parseInt((milliSeconds / 1000) % 60)
+  let minutes = parseInt((milliSeconds / (1000 * 60)) % 60)
+  let hours = parseInt((milliSeconds / (1000 * 60 * 60)) % 24)
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  return `${hours}:${minutes}:${seconds}`
+}
+
+const MediaControlCard = ({track, next, previous, play, pause}) => {
     const classes = useStyles();
     const theme = useTheme();
         
@@ -47,12 +60,16 @@ const MediaControlCard = ({image, title, artists, next, previous, play, pause}) 
           <div className={classes.details}>
             <CardContent className={classes.content}>
           <Typography component="h5" variant="h5">
-            {title}
+          {track.name}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            {R.pluck('name', artists)}
+            {R.pluck('name', track.artists)}
+          </Typography>
+          <Typography>
+            {toTimeString(track.progress)}/{toTimeString(track.duration)}
           </Typography>
         </CardContent>
+        <LinearProgress variant="determinate" value={100 * track.progress / track.duration} />
         <div className={classes.controls}>
           <IconButton aria-label="previous" onClick = {previous}>
             {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
@@ -70,8 +87,8 @@ const MediaControlCard = ({image, title, artists, next, previous, play, pause}) 
       </div>
       <CardMedia
         className={classes.cover}
-        image={image || "/spotify_green.jpg"}
-        title={title}
+        image={track.image || "/spotify_green.jpg"}
+        title={track.title}
       />
     </Card>
    );

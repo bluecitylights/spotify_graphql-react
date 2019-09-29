@@ -2,7 +2,6 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import {Artist, Artists, ArtistSearch, ArtistsQuery, GET_ARTIST_QUERY} from './Artists'
 import {withMocks} from '../withMocks'
-import * as R from 'ramda'
 
 storiesOf('Artist', module)
     .add('artist', () => (

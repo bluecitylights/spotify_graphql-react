@@ -15,6 +15,8 @@ const mocks = [{
           current: {
             name: "Revival 80s",
             image: null,
+            duration: 30000,
+            progress: 180000,
             artists: [
               {
                 name: "Mutant Beat Dance"

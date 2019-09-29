@@ -12,10 +12,12 @@ const current = {
       name: "Laylay"
     }
   ],
-  image: "/spotify_green.jpg"
+  image: "/spotify_green.jpg",
+  progress: 30000,
+  duration: 180000
 }
 
 storiesOf('MediaControlCard', module)
   .add('MediaControlCard', () => (
-      <MediaControlCard image={current.image} title={current.name} artists={current.artists}/>
+      <MediaControlCard track={current} />
   ))

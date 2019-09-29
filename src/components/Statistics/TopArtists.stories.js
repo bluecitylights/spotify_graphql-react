@@ -13,26 +13,31 @@ const mocks = [{
           stats: {
             topArtists: [
               {
+                id: "artist-1", 
                 name: "Revival 80s",
                 image: "/spotify_green.jpg",
                 
               },
               {
+                id: "artist-2", 
                 name: "186 Halin' (Loving Myself Mix)",
                 image: "/spotify_green.jpg",
                 
               },
               {
+                id: "artist-3", 
                 name: "Move to the Front (Disco Mix) - Edit",
                 image: "/spotify_green.jpg",
                 
               },
               {
+                id: "artist-4", 
                 name: "Phantom Dance",
                 image: "/spotify_green.jpg",
                 
               },
               {
+                id: "artist-5", 
                 name: "VYZEE",
                 image: "/spotify_green.jpg",
                 

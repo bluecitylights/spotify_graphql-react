@@ -5,7 +5,6 @@ import * as R from 'ramda'
 import {Loading, Error} from '../Utils/utils'
 import {MediaCard} from '../MediaCard'
 import {navigate} from 'hookrouter'
-import { usePlayer } from '../Player/usePlayer';
 
 
 const GET_RECENT_SONGS = gql`
