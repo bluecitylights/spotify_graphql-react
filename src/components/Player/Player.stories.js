@@ -13,12 +13,15 @@ const mocks = [{
       me: {
         player: {
           current: {
+            id: "track-1",
             name: "Revival 80s",
             image: null,
-            duration: 30000,
-            progress: 180000,
+            lyrics: "my lyrics",
+            progress: 30000,
+            duration: 180000,
             artists: [
               {
+                id: "artist-1",
                 name: "Mutant Beat Dance"
               }
             ]

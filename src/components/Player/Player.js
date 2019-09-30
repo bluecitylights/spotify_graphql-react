@@ -3,6 +3,7 @@ import {MediaControlCard} from './MediaControlCard'
 import {MediaCard} from '../MediaCard'
 import {Loading, Error} from '../Utils/utils'
 import {usePlayer} from './usePlayer'
+import {LyricsCard} from './LyricsCard'
 
 const PlayerEx = ({uri}) => {
     const player = usePlayer();
@@ -38,8 +39,13 @@ const Player = () => {
     if (player.error) return (<Error />)
     if (!player.current) return (<MediaCard image = "/spotify_green.jpg" title = "No player active" content = "Make sure that spotify is active on a device" />)
     return (
-        <MediaControlCard track={player.current} next={player.handleNext} previous={player.handlePrevious} play={onPlay} pause={player.handlePause} />
+        <div>
+            <MediaControlCard track={player.current} next={player.handleNext} previous={player.handlePrevious} play={onPlay} pause={player.handlePause} />
+            <LyricsCard lyrics={player.current.lyrics} />
+        </div>
     )
 }
+
+
 
 export {Player, PlayerEx}

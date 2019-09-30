@@ -10,6 +10,7 @@ const GET_CURRENT_TRACK = gql`
                 current {
                     id
                     name
+                    lyrics
                     image
                     duration
                     progress
