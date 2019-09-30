@@ -90,6 +90,8 @@ const usePlayer = () => {
     const {data, loading: currentLoading, error: currentError, stopPolling, startPolling} = useQuery(GET_CURRENT_TRACK, {pollInterval: POLLING_DELAY})
     const [progress, setProgress] = useState(() => data ? data.me.player.progress : 0);
 
+    // use interval to keep updating the songs progress, in between succesive calls to 
+    // get_current_track query
     useInterval(() => {
         setProgress(progress + 1000);
     }, 1000);
