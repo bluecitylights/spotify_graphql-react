@@ -22,7 +22,7 @@ const PlayerEx = ({uri}) => {
             }
         }
         player.handlePlay(playContext)
-    }, [uri, player])
+    }, [uri])
     
     if (player.loading) return (<Loading />)
     if (player.error) return (<Error />)
