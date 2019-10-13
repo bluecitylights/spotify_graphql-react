@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+
+  spotify-analyzer-app:
+    container_name: spotify-analyzer-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:8080'
+

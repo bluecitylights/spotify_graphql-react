@@ -4,10 +4,17 @@
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "3.1.2",
+    "@material-ui/core": "^4.3.3",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/styles": "^4.3.3",
     "apollo-boost": "0.4.4",
+    "apollo-link-context": "^1.0.18",
     "bootstrap": "4.3.1",
     "graphql": "14.5.8",
     "graphql-tag": "2.10.1",
+    "hookrouter": "^1.2.3",
+    "mui-layout": "^1.2.9",
+    "ramda": "^0.26.1",
     "react": "16.10.2",
     "react-apollo": "3.1.2",
     "react-dom": "16.10.2",
@@ -17,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -s ./public -p 9001"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,5 +41,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@apollo/react-testing": "^3.1.0",
+    "@babel/core": "^7.6.0",
+    "@storybook/react": "^5.1.11",
+    "babel-loader": "^8.0.6",
+    "eslint-plugin-react-hooks": "^2.0.1"
   }
 }
