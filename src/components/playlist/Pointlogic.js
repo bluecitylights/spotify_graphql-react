@@ -4,6 +4,9 @@ import {PlaylistQuery} from './Playlists'
 
 const pointlogic_playlist_ids = [
   "spotify:playlist:5Mys5174T3rwG2Wn0e8mge", // 2019
+  "spotify:playlist:5e5ia6ssY8VywGgUGyNcXR", // December 2019  
+  "spotify:playlist:355sZcK90HrxDulfLS2DZm", // November 2019
+  "spotify:playlist:5Qzxy06sBV7k5gptAZ9KYY", // October 2019
   "spotify:playlist:7JW4hoHrl4oMngDD82k2tE", // September 2019
   "spotify:playlist:2mYGFjyXH00sxIFOhfIBZ2", // August 2019
   "spotify:playlist:2p4PGnQyvoOw9NjJAY1uIC", // July 2019
