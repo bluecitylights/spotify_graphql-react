@@ -4,6 +4,7 @@ import {PlaylistQuery} from './Playlists'
 
 const pointlogic_playlist_ids = [
   "spotify:playlist:3L0VbSgXFWKb05sqH08JMf", // 2020
+  "spotify:playlist:3aVmlULrTxZLkPT1V3tw2r", // March 2020
   "spotify:playlist:3KAAmyT8cC2PExBkSYLELu", // Februari 2020
   "spotify:playlist:480U825k3yNkPwabm6H0k9", // Januari 2020
   "spotify:playlist:5Mys5174T3rwG2Wn0e8mge", // 2019
