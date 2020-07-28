@@ -11,7 +11,7 @@
     "apollo-link-context": "1.0.20",
     "bootstrap": "4.5.0",
     "graphql": "15.3.0",
-    "graphql-tag": "2.10.4",
+    "graphql-tag": "2.11.0",
     "hookrouter": "1.2.3",
     "mui-layout": "1.2.9",
     "ramda": "0.27.0",
