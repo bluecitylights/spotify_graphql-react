@@ -9,7 +9,7 @@
     "@material-ui/styles": "4.11.2",
     "apollo-boost": "0.4.9",
     "apollo-link-context": "1.0.20",
-    "bootstrap": "4.5.3",
+    "bootstrap": "4.6.0",
     "graphql": "15.4.0",
     "graphql-tag": "2.11.0",
     "hookrouter": "1.2.5",
