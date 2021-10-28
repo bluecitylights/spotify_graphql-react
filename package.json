@@ -10,7 +10,7 @@
     "apollo-boost": "0.4.9",
     "apollo-link-context": "1.0.20",
     "bootstrap": "4.6.1",
-    "graphql": "15.7.1",
+    "graphql": "15.7.2",
     "graphql-tag": "2.12.5",
     "hookrouter": "1.2.5",
     "mui-layout": "1.2.9",
